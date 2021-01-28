@@ -2,6 +2,8 @@ const express = require("express")
 const bodyParser = require("body-parser")
 const fileUpload = require("express-fileupload")
 const config = require("config")
+const R = require("ramda")
+const fs = require("fs")
 const people = require("./data")
 
 const app = express()
@@ -22,8 +24,8 @@ app.post(
   "/people/export",
   fileUpload(),
   (req, res) => {
-    console.log("Thank you for the file", req.file)
-    res.send(204)
+    console.log("Body received", req.body)
+    res.sendStatus(204)
   },
 )
 
