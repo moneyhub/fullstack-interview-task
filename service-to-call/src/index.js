@@ -2,8 +2,6 @@ const express = require("express")
 const bodyParser = require("body-parser")
 const fileUpload = require("express-fileupload")
 const config = require("config")
-const R = require("ramda")
-const fs = require("fs")
 const people = require("./data")
 
 const app = express()
