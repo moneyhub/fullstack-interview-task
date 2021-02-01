@@ -6,7 +6,7 @@ A request for a new admin feature has been received
 
 ## Requirements
 
-- An admin is able to generate a csv formatted report showing the values of the user holdings
+- An admin is able to generate a csv formatted report showing the values of all user holdings
     - The report should be sent to the `/export` route of the holdings service
     - The holdings service expects the report to be sent as csv text
     - The csv should contain a row for each holding matching the following headers
@@ -59,4 +59,4 @@ Financial Companies - localhost:8082
 `/companies/:id` get company by id
 
 Admin - localhost:8083
-`/
+`/user/:id` get users holdings

@@ -12,9 +12,9 @@ app.get("/holdings", (req, res) => {
   res.send(holdings)
 })
 
-app.get("/holdings/:id", (req, res) => {
-  const {id: requestedId} = req.params
-  const holding = holdings.find(({id}) => id === requestedId)
+app.get("/holdings/:userId", (req, res) => {
+  const {userId: requestedUserId} = req.params
+  const holding = holdings.filter(({userId}) => userId === requestedUserId)
   res.send(holding)
 })
 

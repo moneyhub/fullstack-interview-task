@@ -1,6 +1,6 @@
 [{
   "id": "1",
-  "user": "1",
+  "userId": "1",
   "firstName": "Billy",
   "lastName": "Bob",
   "investments": 1400,
@@ -8,7 +8,7 @@
   "holdings": [{"id": "2", "amount": 1}]
 }, {
   "id": "2",
-  "user": "2",
+  "userId": "2",
   "firstName": "Sheila",
   "lastName": "Aussie",
   "investments": 20000,
@@ -16,7 +16,7 @@
   "holdings": [{"id": "1", "amount": 0.5}, {"id": "2", "amount": 0.5}]
 }, {
   "id": "3",
-  "user": "1",
+  "userId": "1",
   "firstName": "Billy",
   "lastName": "Bob",
   "investment": 1300,
@@ -24,7 +24,7 @@
   "holdings": [{"id": "2", "amount": 1}]
 }, {
   "id": "4",
-  "user": "2",
+  "userId": "2",
   "firstName": "Sheila",
   "lastName": "Aussie",
   "investment": 22000,
@@ -32,7 +32,7 @@
   "holdings": [{"id": "1", "amount": 0.5}, {"id": "2", "amount": 0.5}]
 }, {
   "id": "5",
-  "user": "1",
+  "userId": "1",
   "firstName": "Billy",
   "lastName": "Bob",
   "investment": 12000,
@@ -40,7 +40,7 @@
   "holdings": [{"id": "2", "amount": 1}]
 }, {
   "id": "6",
-  "user": "2",
+  "userId": "2",
   "firstName": "Sheila",
   "lastName": "Aussie",
   "investment": 21500,
@@ -49,7 +49,7 @@
 },
 {
   "id": "7",
-  "user": "3",
+  "userId": "3",
   "firstName": "John",
   "lastName": "Smith",
   "investment": 150000,
