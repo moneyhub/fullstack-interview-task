@@ -2,19 +2,21 @@ const express = require("express")
 const bodyParser = require("body-parser")
 const config = require("config")
 const request = require("request")
+const R = require("ramda")
 
 const app = express()
 
 app.use(bodyParser.json({limit: "10mb"}))
 
-app.get("/people/:id", (req, res) => {
+app.get("/users/:id", (req, res) => {
   const {id} = req.params
-  request.get(`${config.serviceToCallUrl}/people/${id}`, (e, r, person) => {
+  request.get(`${config.holdings}/holdings`, (e, r, holdings) => {
     if (e) {
       console.error(e)
       res.send(500)
     } else {
-      res.send(person)
+      const userHoldings = R.filter(R.propEq("user", id), JSON.parse(holdings))
+      res.send(userHoldings)
     }
   })
 })

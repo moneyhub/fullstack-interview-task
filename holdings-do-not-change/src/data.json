@@ -1,0 +1,58 @@
+[{
+  "id": "1",
+  "user": "1",
+  "firstName": "Billy",
+  "lastName": "Bob",
+  "investments": 1400,
+  "date": "2020-01-01",
+  "holdings": [{"id": "2", "amount": 1}]
+}, {
+  "id": "2",
+  "user": "2",
+  "firstName": "Sheila",
+  "lastName": "Aussie",
+  "investments": 20000,
+  "date": "2020-01-01",
+  "holdings": [{"id": "1", "amount": 0.5}, {"id": "2", "amount": 0.5}]
+}, {
+  "id": "3",
+  "user": "1",
+  "firstName": "Billy",
+  "lastName": "Bob",
+  "investment": 1300,
+  "date": "2020-02-01",
+  "holdings": [{"id": "2", "amount": 1}]
+}, {
+  "id": "4",
+  "user": "2",
+  "firstName": "Sheila",
+  "lastName": "Aussie",
+  "investment": 22000,
+  "date": "2020-02-01",
+  "holdings": [{"id": "1", "amount": 0.5}, {"id": "2", "amount": 0.5}]
+}, {
+  "id": "5",
+  "user": "1",
+  "firstName": "Billy",
+  "lastName": "Bob",
+  "investment": 12000,
+  "date": "2020-03-01",
+  "holdings": [{"id": "2", "amount": 1}]
+}, {
+  "id": "6",
+  "user": "2",
+  "firstName": "Sheila",
+  "lastName": "Aussie",
+  "investment": 21500,
+  "date": "2020-03-01",
+  "holdings": [{"id": "1", "amount": 0.5}, {"id": "2", "amount": 0.3}, {"id": "3", "amount": 0.2}]
+},
+{
+  "id": "7",
+  "user": "3",
+  "firstName": "John",
+  "lastName": "Smith",
+  "investment": 150000,
+  "date": "2020-03-01",
+  "holdings": [{"id": "1", "amount": 0.8}, {"id": "3", "amount": 0.2}]
+}]
