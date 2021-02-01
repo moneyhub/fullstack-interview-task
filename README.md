@@ -51,7 +51,7 @@ We have provide a series of routes
 
 Holdings - localhost:8081
 `/holdings` get all holdings
-`/holdings/:id` get holding by id
+`/holdings/:userId` get holdings for a user
 `/holdings/export` expects a csv formatted text input as the body
 
 Financial Companies - localhost:8082

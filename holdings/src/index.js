@@ -3,6 +3,7 @@ const bodyParser = require("body-parser")
 const fileUpload = require("express-fileupload")
 const config = require("config")
 const holdings = require("./data")
+const R = require("ramda")
 
 const app = express()
 
@@ -13,8 +14,8 @@ app.get("/holdings", (req, res) => {
 })
 
 app.get("/holdings/:userId", (req, res) => {
-  const {userId: requestedUserId} = req.params
-  const holding = holdings.filter(({userId}) => userId === requestedUserId)
+  const {userId} = req.params
+  const holding = R.filter(R.propEq("userId", userId), holdings)
   res.send(holding)
 })
 
