@@ -7,12 +7,12 @@ A request for a new admin feature has been received
 ## Requirements
 
 - An admin is able to generate a csv formatted report showing the values of all user holdings
-    - The report should be sent to the `/export` route of the holdings service
-    - The holdings service expects the report to be sent as csv text
+    - The report should be sent to the `/export` route of the investments service
+    - The investments service expects the report to be sent as csv text
     - The csv should contain a row for each holding matching the following headers
     |User|First Name|Last Name|Date|Holding|Value|
-    - The holding value can be calculated by `investmentTotal * investmentPercentage`
     - The holding should be the name of the holding account given by the financial-companies service
+    - The holding value can be calculated by `investmentTotal * investmentPercentage`
 - Ensure use of up to date packages and libraries (the service is known to use deprecated packages)
 - Make effective use of git
 
@@ -49,14 +49,14 @@ Use Postman or any API tool of you choice to trigger your endpoints (this is how
 ### Existing routes
 We have provided a series of routes 
 
-Holdings - localhost:8081
-`/holdings` get all holdings
-`/holdings/:userId` get holdings for a user
-`/holdings/export` expects a csv formatted text input as the body
+Investments - localhost:8081
+`/investments` get all investments
+`/investments/:id` get an investment record by id
+`/investments/export` expects a csv formatted text input as the body
 
 Financial Companies - localhost:8082
 `/companies` get all companies details
 `/companies/:id` get company by id
 
 Admin - localhost:8083
-`/user/:id` get users holdings
+`/investments/:id` get an investment record by id
