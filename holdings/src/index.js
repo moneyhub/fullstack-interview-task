@@ -13,9 +13,9 @@ app.get("/holdings", (req, res) => {
   res.send(holdings)
 })
 
-app.get("/holdings/:userId", (req, res) => {
-  const {userId} = req.params
-  const holding = R.filter(R.propEq("userId", userId), holdings)
+app.get("/holdings/:id", (req, res) => {
+  const {id} = req.params
+  const holding = R.filter(R.propEq("id", id), holdings)
   res.send(holding)
 })
 
