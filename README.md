@@ -34,9 +34,13 @@ Some questions we'd also like you to consider around this task:
 1. What could you do to make this more secure?
 2. How would you make this solution scale to millions of records?
 3. What else would you have liked to improve given more time?
-On completion email a link to your repository to your contact at Moneyhub and ensure it is publicly accessible.
 
 ## Getting Started
+
+Please clone this service and push it to your own github (or other) public repository
+
+On completion email a link to your repository to your contact at Moneyhub and ensure it is publicly accessible.
+
 To develop against all the services each one will need to be started in each service run
 
 ```bash
