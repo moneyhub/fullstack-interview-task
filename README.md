@@ -23,9 +23,13 @@ We prefer:
 
 ### Notes
 All of you work should take place inside the `admin` microservice
+
 For the purposes of this task we would assume there are sufficient security middleware, permissions access and PII safe protocols
+
 You are free to use any packages that would help with this task
+
 We're interested in how you break down the work and build your solution in a clean and reusable manner rather than seeing a perfect example, try to only spend arouns *1-2 hours* working on it
+
 Some questions we'd also like you to consider around this task:
 1. What could you do to make this more secure?
 2. How would you make this solution scale to millions of records?
@@ -42,6 +46,7 @@ npm run develop
 ```
 
 The develop command will run nodemon allowing you to make changes without restarting
+
 The services will try to use ports 8081, 8082 and 8083
 
 Use Postman or any API tool of you choice to trigger your endpoints (this is how we will test your new route). Please add your new routes to the readme
