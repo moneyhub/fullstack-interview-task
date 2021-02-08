@@ -1,6 +1,5 @@
 const express = require("express")
 const bodyParser = require("body-parser")
-const fileUpload = require("express-fileupload")
 const config = require("config")
 const investments = require("./data")
 const R = require("ramda")

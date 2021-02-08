@@ -50,13 +50,13 @@ Use Postman or any API tool of you choice to trigger your endpoints (this is how
 We have provided a series of routes 
 
 Investments - localhost:8081
-`/investments` get all investments
-`/investments/:id` get an investment record by id
-`/investments/export` expects a csv formatted text input as the body
+- `/investments` get all investments
+- `/investments/:id` get an investment record by id
+- `/investments/export` expects a csv formatted text input as the body
 
 Financial Companies - localhost:8082
-`/companies` get all companies details
-`/companies/:id` get company by id
+- `/companies` get all companies details
+- `/companies/:id` get company by id
 
 Admin - localhost:8083
-`/investments/:id` get an investment record by id
+- `/investments/:id` get an investment record by id
