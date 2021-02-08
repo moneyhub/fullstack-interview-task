@@ -2,30 +2,27 @@ const express = require("express")
 const bodyParser = require("body-parser")
 const fileUpload = require("express-fileupload")
 const config = require("config")
-const people = require("./data")
+const investments = require("./data")
+const R = require("ramda")
 
 const app = express()
 
 app.use(bodyParser.json({limit: "10mb"}))
 
-app.get("/people", (req, res) => {
-  res.send(people)
+app.get("/investments", (req, res) => {
+  res.send(investments)
 })
 
-app.get("/people/:id", (req, res) => {
-  const {id: requestedId} = req.params
-  const person = people.find(({id}) => id === requestedId)
-  res.send(person)
+app.get("/investments/:id", (req, res) => {
+  const {id} = req.params
+  const investment = R.filter(R.propEq("id", id), investments)
+  res.send(investment)
 })
 
-app.post(
-  "/people/export",
-  fileUpload(),
-  (req, res) => {
-    console.log("Body received", req.body)
-    res.sendStatus(204)
-  },
-)
+app.post("/investments/export", (req, res) => {
+  console.log("Body received", req.body)
+  res.sendStatus(204)
+})
 
 app.listen(config.port, (err) => {
   if (err) {
