@@ -23,11 +23,12 @@ We prefer:
 
 ### Notes
 All of you work should take place inside the `admin` microservice
-For the purposes of this task we would assume there are sufficient security middleware, permissions access and PII safe protocols
+For the purposes of this task we would assume there are sufficient security middleware, permissions access and PII safe protocols, you do not need to add additional security measures as part of this exercise.
 You are free to use any packages that would help with this task
 We're interested in how you break down the work and build your solution in a clean and reusable manner rather than seeing a perfect example, try to only spend arouns *1-2 hours* working on it
-Some questions we'd also like you to consider around this task:
-1. What could you do to make this more secure?
+
+Relating to the task we'd also like you to write some answers to the following questions;
+1. How might you make this service more secure?
 2. How would you make this solution scale to millions of records?
 3. What else would you have liked to improve given more time?
 On completion email a link to your repository to your contact at Moneyhub and ensure it is publicly accessible.
