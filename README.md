@@ -28,7 +28,7 @@ For the purposes of this task we would assume there are sufficient security midd
 
 You are free to use any packages that would help with this task
 
-We're interested in how you break down the work and build your solution in a clean and reusable manner rather than seeing a perfect example, try to only spend arouns *1-2 hours* working on it
+We're interested in how you break down the work and build your solution in a clean, reusable and testable manner rather than seeing a perfect example, try to only spend around *1-2 hours* working on it
 
 Relating to the task we'd also like you to write some answers to the following questions;
 1. How might you make this service more secure?
