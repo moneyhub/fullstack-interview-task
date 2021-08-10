@@ -1,22 +1,22 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 const config = require("config")
-const request = require("request")
+const got = require("got")
+const { generateReport, generateCsv } = require('./generate-report')
 
 const app = express()
 
-app.use(bodyParser.json({limit: "10mb"}))
+app.use(bodyParser.json({ limit: "10mb" }))
 
-app.get("/investments/:id", (req, res) => {
-  const {id} = req.params
-  request.get(`${config.investmentsServiceUrl}/investments/${id}`, (e, r, investments) => {
-    if (e) {
-      console.error(e)
-      res.send(500)
-    } else {
-      res.send(investments)
-    }
-  })
+app.get("/investments/:id", async (req, res) => {
+  const { id } = req.params
+  try {
+    const investments = (await got(`${config.investmentsServiceUrl}/investments/${id}`)).body
+    res.send(investments)
+  } catch (e) {
+    console.error(e)
+    res.send(500)
+  }
 })
 
 app.listen(config.port, (err) => {
