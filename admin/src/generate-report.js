@@ -1,4 +1,6 @@
-module.exports = (investments, companies) => {
+const { Parser } = require('json2csv')
+
+const generateReport = (investments, companies) => {
   const companiesIdMap = companies.reduce((companyMap, company) => {
     return {
       ...companyMap,
@@ -21,4 +23,33 @@ module.exports = (investments, companies) => {
         }
       })]
     }, [])
+}
+
+const generateCsv = (data) => {
+  const fields = [{
+    label: 'User',
+    value: 'user'
+  }, {
+    label: 'First Name',
+    value: 'firstName'
+  }, {
+    label: 'Last Name',
+    value: 'lastName'
+  }, {
+    label: 'Date',
+    value: 'date'
+  }, {
+    label: 'Holding',
+    value: 'holding'
+  }, {
+    label: 'Value',
+    value: 'value'
+  }]
+  const json2csvParser = new Parser({ fields })
+  return json2csvParser.parse(data)
+}
+
+module.exports = {
+  generateReport,
+  generateCsv
 }

@@ -4,7 +4,7 @@ Todo:
 - [x] bis logic
   - [x] create unit test
   - [x] implement
-- [ ] move to csv
+- [x] move to csv
 - [ ] wrap service in endpoint (POST, "reportOnUserHoldings")
 - [ ] post generated csv
 

@@ -1,5 +1,4 @@
-const { companies, investments } = require('./generate-report.fixtures')
-const generateReport = require('./generate-report')
+const { generateReport, generateCsv } = require('./generate-report')
 
 describe('generate-report', () => {
   it('maps holding accounts', () => {
@@ -72,4 +71,37 @@ describe('generate-report', () => {
     expect(() => generateReport(investments, companies)).toThrow('Error generating report - could not find company with ID 2 for holding under investment with ID 30')
   })
 
+  it('can generate a CSV', () => {
+    const data = [{
+      user: "1",
+      firstName: "Billy",
+      lastName: "Bob",
+      date: "2020-01-01",
+      holding: 'The Small Investment Company',
+      value: 1400
+    }, {
+      user: "2",
+      firstName: "Sheila",
+      lastName: "Aussie",
+      date: "2020-01-01",
+      holding: 'The Big Investment Company',
+      value: 10000
+    }, {
+      user: "2",
+      firstName: "Sheila",
+      lastName: "Aussie",
+      date: "2020-01-01",
+      holding: 'The Small Investment Company',
+      value: 10000
+    }]
+
+    const result = generateCsv(data)
+
+    const expected = `"User","First Name","Last Name","Date","Holding","Value"
+"1","Billy","Bob","2020-01-01","The Small Investment Company",1400
+"2","Sheila","Aussie","2020-01-01","The Big Investment Company",10000
+"2","Sheila","Aussie","2020-01-01","The Small Investment Company",10000`
+
+    expect(result).toEqual(expected)
+  })
 })
