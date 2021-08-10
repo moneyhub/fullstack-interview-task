@@ -53,6 +53,23 @@ describe('generate-report', () => {
     }])
   })
 
-  it.todo('throws an error when company ID does not exist')
+  it('throws an error when company ID does not exist', () => {
+    const investments = [{
+      "id": 30,
+      "userId": "1",
+      "firstName": "Billy",
+      "lastName": "Bob",
+      "investmentTotal": 1400,
+      "date": "2020-01-01",
+      "holdings": [{ "id": "2", "investmentPercentage": 1 }]
+    }]
+
+    const companies = [{
+      "id": "4",
+      "name": "The Big Investment Company"
+    }]
+
+    expect(() => generateReport(investments, companies)).toThrow('Error generating report - could not find company with ID 2 for holding under investment with ID 30')
+  })
 
 })
