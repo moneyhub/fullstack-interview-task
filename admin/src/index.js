@@ -19,6 +19,29 @@ app.get("/investments/:id", async (req, res) => {
   }
 })
 
+app.post("/generateUserHoldingsReport", async (req, res) => {
+  try {
+    const [investmentsResponse, companiesResponse] = await Promise.all([
+      got(`${config.investmentsServiceUrl}/investments`).json(),
+      got(`${config.financialCompaniesServiceUrl}/companies`).json()
+    ])
+
+    const csvData = generateCsv(generateReport(investmentsResponse, companiesResponse))
+
+    await got.post(`${config.investmentsServiceUrl}/investments/export`, {
+      headers: {
+        'content-type': 'text/csv'
+      },
+      body: csvData
+    })
+
+    res.send('report generated')
+  } catch (e) {
+    console.error(e)
+    res.send(500)
+  }
+})
+
 app.listen(config.port, (err) => {
   if (err) {
     console.error("Error occurred starting the server", err)
