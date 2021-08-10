@@ -1,3 +1,9 @@
 {
-  "extends": "@mft/eslint-config-momentumft"
+  "extends": "@mft/eslint-config-momentumft",
+  "plugins": [
+    "jest"
+  ],
+  "env": {
+    "jest/globals": true
+  }
 }

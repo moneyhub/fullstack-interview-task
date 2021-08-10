@@ -1,6 +1,6 @@
 Todo:
 
-- [ ] update packages
+- [X] update packages
 - [ ] bis logic
   - [ ] create unit test
   - [ ] implement
