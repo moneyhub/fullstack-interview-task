@@ -1,3 +1,13 @@
+Todo:
+
+- [ ] update packages
+- [ ] bis logic
+  - [ ] create unit test
+  - [ ] implement
+  - [ ] move to csv
+- [ ] wrap service in endpoint (POST, "reportOnUserHoldings")
+- [ ] post generated csv
+
 # Moneyhub Tech Test - Investments and Holdings
 
 At Moneyhub we use microservices to partition and separate the concerns of the codebase. In this exercise we have given you an example `admin` service and some accompanying services to work with. In this case the admin service backs a front end admin tool allowing non-technical staff to interact with data.
