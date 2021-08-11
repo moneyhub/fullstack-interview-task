@@ -1,6 +1,7 @@
 const { Parser } = require('json2csv')
+const { pipe } = require('ramda')
 
-const generateReport = (investments, companies) => {
+const mapUserHoldingsReportData = (investments, companies) => {
   const companiesIdMap = companies.reduce((companyMap, company) => {
     return {
       ...companyMap,
@@ -25,7 +26,7 @@ const generateReport = (investments, companies) => {
     }, [])
 }
 
-const generateCsv = (data) => {
+const pivotToCsv = (data) => {
   const fields = [{
     label: 'User',
     value: 'user'
@@ -50,6 +51,7 @@ const generateCsv = (data) => {
 }
 
 module.exports = {
-  generateReport,
-  generateCsv
+  mapUserHoldingsReportData,
+  pivotToCsv,
+  generateUserHoldingsReport: pipe(mapUserHoldingsReportData, pivotToCsv)
 }

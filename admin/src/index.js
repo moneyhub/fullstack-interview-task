@@ -2,7 +2,7 @@ const express = require("express")
 const bodyParser = require("body-parser")
 const config = require("config")
 const got = require("got")
-const { generateReport, generateCsv } = require('./generate-report')
+const { generateUserHoldingsReport } = require('./services/generate-user-holdings-report')
 
 const app = express()
 
@@ -26,7 +26,7 @@ app.post("/generateUserHoldingsReport", async (req, res) => {
       got(`${config.financialCompaniesServiceUrl}/companies`).json()
     ])
 
-    const csvData = generateCsv(generateReport(investmentsResponse, companiesResponse))
+    const csvData = generateUserHoldingsReport(investmentsResponse, companiesResponse)
 
     await got.post(`${config.investmentsServiceUrl}/investments/export`, {
       headers: {
