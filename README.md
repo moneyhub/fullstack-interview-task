@@ -5,12 +5,18 @@ Todo:
   - [x] create unit test
   - [x] implement
 - [x] move to csv
-- [ ] wrap service in endpoint (POST, "reportOnUserHoldings")
-- [ ] post generated csv
+- [x] wrap service in endpoint (POST, "reportOnUserHoldings")
+- [x] post generated csv
+- [ ] answer Qs
+- [ ] docs
 
-Questions:
+PR notes
 
+- I had to update the investments service to accept a text/csv content-type, as it was only accepting JSON.
 - holding.id is the same as company ID?
+- also updated the insecure packages in the other services
+- please forgive the formatting differences - I did not update the style preferences in VS code to match the codebase
+- new test runner using jest.
 
 # Moneyhub Tech Test - Investments and Holdings
 

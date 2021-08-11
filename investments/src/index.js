@@ -6,14 +6,15 @@ const R = require("ramda")
 
 const app = express()
 
-app.use(bodyParser.json({limit: "10mb"}))
+app.use(bodyParser.json({ limit: "10mb" }))
+app.use(bodyParser.text({ limit: "10mb", type: "text/csv" }))
 
 app.get("/investments", (req, res) => {
   res.send(investments)
 })
 
 app.get("/investments/:id", (req, res) => {
-  const {id} = req.params
+  const { id } = req.params
   const investment = R.filter(R.propEq("id", id), investments)
   res.send(investment)
 })
