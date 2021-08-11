@@ -8,7 +8,7 @@ Todo:
 - [x] wrap service in endpoint (POST, "reportOnUserHoldings")
 - [x] post generated csv
 - [x] answer Qs
-- [ ] docs
+- [x] docs
 
 PR notes
 
@@ -101,3 +101,4 @@ Financial Companies - localhost:8082
 Admin - localhost:8083
 
 - `/investments/:id` get an investment record by id
+- POST `/generateUserHoldingsReport` generate an investment holdings report for all users and send to `http://investments/investments/export`
