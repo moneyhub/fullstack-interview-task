@@ -1,23 +1,3 @@
-Todo:
-
-- [x] update packages
-- [x] bis logic
-  - [x] create unit test
-  - [x] implement
-- [x] move to csv
-- [x] wrap service in endpoint (POST, "reportOnUserHoldings")
-- [x] post generated csv
-- [x] answer Qs
-- [x] docs
-
-PR notes
-
-- I had to update the investments service to accept a text/csv content-type, as it was only accepting JSON.
-- holding.id is the same as company ID?
-- also updated the insecure packages in the other services
-- please forgive the formatting differences - I did not update the style preferences in VS code to match the codebase
-- new test runner using jest.
-
 # Moneyhub Tech Test - Investments and Holdings
 
 At Moneyhub we use microservices to partition and separate the concerns of the codebase. In this exercise we have given you an example `admin` service and some accompanying services to work with. In this case the admin service backs a front end admin tool allowing non-technical staff to interact with data.
