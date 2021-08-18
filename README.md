@@ -35,8 +35,7 @@ We're interested in how you break down the work and build your solution in a cle
 
 - Your new routes
 - How to run any additional scripts or tests you may have added
-- Some answers to the following questions
-    Relating to the task we'd also like you to write some answers to the following questions;
+- Relating to the task please add answers to the following questions;
     1. How might you make this service more secure?
     2. How would you make this solution scale to millions of records?
     3. What else would you have liked to improve given more time?
