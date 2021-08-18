@@ -30,16 +30,23 @@ You are free to use any packages that would help with this task
 
 We're interested in how you break down the work and build your solution in a clean, reusable and testable manner rather than seeing a perfect example, try to only spend around *1-2 hours* working on it
 
-Relating to the task we'd also like you to write some answers to the following questions;
-1. How might you make this service more secure?
-2. How would you make this solution scale to millions of records?
-3. What else would you have liked to improve given more time?
+## Deliverables
+**Please make sure to update the readme with**:
+
+- Your new routes
+- How to run any additional scripts or tests you may have added
+- Some answers to the following questions
+    Relating to the task we'd also like you to write some answers to the following questions;
+    1. How might you make this service more secure?
+    2. How would you make this solution scale to millions of records?
+    3. What else would you have liked to improve given more time?
+  
+
+On completion email a link to your repository to your contact at Moneyhub and ensure it is publicly accessible.
 
 ## Getting Started
 
 Please clone this service and push it to your own github (or other) public repository
-
-On completion email a link to your repository to your contact at Moneyhub and ensure it is publicly accessible.
 
 To develop against all the services each one will need to be started in each service run
 
@@ -53,7 +60,7 @@ The develop command will run nodemon allowing you to make changes without restar
 
 The services will try to use ports 8081, 8082 and 8083
 
-Use Postman or any API tool of you choice to trigger your endpoints (this is how we will test your new route). Please add your new routes to the readme
+Use Postman or any API tool of you choice to trigger your endpoints (this is how we will test your new route).
 
 ### Existing routes
 We have provided a series of routes 
