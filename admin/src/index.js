@@ -17,19 +17,14 @@ app.use(cors())
 
 app.use(bodyParser.json({limit: "10mb"}))
 
-app.get("/investments/:id", (req, res) => {
+app.get("/investments/:id", async (req, res) => {
   const {id} = req.params
-  request.get(
-    `${config.investmentsServiceUrl}/investments/${id}`,
-    (e, r, investments) => {
-      if (e) {
-        console.error(e)
-        res.status(500)
-      } else {
-        res.send(investments)
-      }
-    },
-  )
+  const response = await axios.get(`${config.investmentsServiceUrl}/investments/${id}`)
+  if (response.data.length) {
+    res.send(response.data)
+  } else {
+    res.status(500).send("not found")
+  }
 })
 
 // eslint-disable-next-line max-statements
