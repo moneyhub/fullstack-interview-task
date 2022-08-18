@@ -21,9 +21,6 @@ A request for a new admin feature has been received
 ### New routes
 - / getcsv route in admin directory
 
-### How to run the project
-- to get the project running please cd into each directory and install dependecies first by running the script npm install
-
 ### How to run tests
 - to run the tests please run the script npx mocha
 
