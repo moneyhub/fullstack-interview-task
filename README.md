@@ -16,32 +16,26 @@ A request for a new admin feature has been received
 - Ensure use of up to date packages and libraries (the service is known to use deprecated packages)
 - Make effective use of git
 
-We prefer:
-- Functional code 
-- Ramda.js (this is not a requirement but feel free to investigate)
-- Unit testing
+## Updated README
 
-### Notes
-All of you work should take place inside the `admin` microservice
+### New routes
+- / getcsv route in admin directory
 
-For the purposes of this task we would assume there are sufficient security middleware, permissions access and PII safe protocols, you do not need to add additional security measures as part of this exercise.
+### How to run the project
+- to get the project running please cd into each directory and install dependecies first by running the script npm install
 
-You are free to use any packages that would help with this task
+### How to run tests
+- to run the tests please run the script npx mocha
 
-We're interested in how you break down the work and build your solution in a clean, reusable and testable manner rather than seeing a perfect example, try to only spend around *1-2 hours* working on it
+### Additional questions
+1. How might you make this service more secure?
+Easiest way would be by adding API authentication with a JWT token, and adding a middleware in the ednpoint that verifies this with a JWT secret. I added the package helmet for some basic security measures
 
-## Deliverables
-**Please make sure to update the readme with**:
+2. How would you make this solution scale to millions of records?
+By using a relational database like mySQL. I would add the rows of data in their own respective tables and join them as necessary and send it through the endpoints
 
-- Your new routes
-- How to run any additional scripts or tests you may have added
-- Relating to the task please add answers to the following questions;
-    1. How might you make this service more secure?
-    2. How would you make this solution scale to millions of records?
-    3. What else would you have liked to improve given more time?
-  
-
-On completion email a link to your repository to your contact at Moneyhub and ensure it is publicly accessible.
+3. What else would you have liked to improve given more time?
+The Readme is a little bit unclear
 
 ## Getting Started
 
@@ -62,7 +56,7 @@ The services will try to use ports 8081, 8082 and 8083
 Use Postman or any API tool of you choice to trigger your endpoints (this is how we will test your new route).
 
 ### Existing routes
-We have provided a series of routes 
+We have provided a series of routes
 
 Investments - localhost:8081
 - `/investments` get all investments
