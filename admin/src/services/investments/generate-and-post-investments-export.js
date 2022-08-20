@@ -1,6 +1,6 @@
 const {jsonToCsv} = require("../../utils/json-to-csv")
 const {fetchInvestmentsData} = require("./fetch-investments-data")
-const {processInvestmentsDataForExport} = require("./process-investment-data-for-export")
+const {processInvestmentsDataForExport} = require("./process-investments-data-for-export")
 const {postInvestmentsExport} = require("./post-investments-export")
 const {INVESTMENTS_EXPORT_COLUMS} = require("../../consts")
 
