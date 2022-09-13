@@ -1,22 +1,39 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 const config = require("config")
-const request = require("request")
+const axios = require("axios")
+
+const {generateAndPostInvestmentsExport} = require("./services/investments")
 
 const app = express()
 
 app.use(bodyParser.json({limit: "10mb"}))
 
-app.get("/investments/:id", (req, res) => {
+app.use((req, res, next) => {
+  console.log(new Date(Date.now()).toISOString(), req.method, req.path)
+  return next()
+})
+
+app.get("/investments/:id", async (req, res, next) => {
   const {id} = req.params
-  request.get(`${config.investmentsServiceUrl}/investments/${id}`, (e, r, investments) => {
-    if (e) {
-      console.error(e)
-      res.send(500)
-    } else {
-      res.send(investments)
-    }
-  })
+
+  try {
+    const response = await axios.get(`${config.investmentsServiceUrl}/investments/${id}`)
+    res.send(response.data)
+  } catch (e) {
+    next(e)
+  }
+})
+
+app.post("/investments/export", async (req, res, next) => {
+  try {
+    await generateAndPostInvestmentsExport()
+
+    // created suits this use case, I think
+    res.sendStatus(201)
+  } catch (e) {
+    next(e)
+  }
 })
 
 app.listen(config.port, (err) => {

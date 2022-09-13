@@ -1,4 +1,6 @@
 {
   "port": 8083,
-  "investmentsServiceUrl": "http://localhost:8081"
+  "investmentsServiceUrl": "http://localhost:8081",
+  "financialCompaniesServiceUrl": "http://localhost:8082",
+  "fetchHoldingNameMemoTimeout": 60000
 }

@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`processInvestmentsDataForExport generates the expected data for a given input 1`] = `
+"[
+  {
+    \\"First Name\\": \\"Billy\\",
+    \\"Last Name\\": \\"Bob\\",
+    \\"Date\\": \\"2020-01-01\\",
+    \\"Holding\\": \\"generic holding\\",
+    \\"Value\\": 1400
+  },
+  {
+    \\"First Name\\": \\"Sheila\\",
+    \\"Last Name\\": \\"Aussie\\",
+    \\"Date\\": \\"2020-01-01\\",
+    \\"Holding\\": \\"generic holding\\",
+    \\"Value\\": 10000
+  },
+  {
+    \\"First Name\\": \\"Sheila\\",
+    \\"Last Name\\": \\"Aussie\\",
+    \\"Date\\": \\"2020-01-01\\",
+    \\"Holding\\": \\"generic holding\\",
+    \\"Value\\": 10000
+  },
+  {
+    \\"First Name\\": \\"Billy\\",
+    \\"Last Name\\": \\"Bob\\",
+    \\"Date\\": \\"2020-02-01\\",
+    \\"Holding\\": \\"generic holding\\",
+    \\"Value\\": 1300
+  },
+  {
+    \\"First Name\\": \\"Sheila\\",
+    \\"Last Name\\": \\"Aussie\\",
+    \\"Date\\": \\"2020-02-01\\",
+    \\"Holding\\": \\"generic holding\\",
+    \\"Value\\": 11000
+  },
+  {
+    \\"First Name\\": \\"Sheila\\",
+    \\"Last Name\\": \\"Aussie\\",
+    \\"Date\\": \\"2020-02-01\\",
+    \\"Holding\\": \\"generic holding\\",
+    \\"Value\\": 11000
+  },
+  {
+    \\"First Name\\": \\"Billy\\",
+    \\"Last Name\\": \\"Bob\\",
+    \\"Date\\": \\"2020-03-01\\",
+    \\"Holding\\": \\"generic holding\\",
+    \\"Value\\": 12000
+  },
+  {
+    \\"First Name\\": \\"Sheila\\",
+    \\"Last Name\\": \\"Aussie\\",
+    \\"Date\\": \\"2020-03-01\\",
+    \\"Holding\\": \\"generic holding\\",
+    \\"Value\\": 10750
+  },
+  {
+    \\"First Name\\": \\"Sheila\\",
+    \\"Last Name\\": \\"Aussie\\",
+    \\"Date\\": \\"2020-03-01\\",
+    \\"Holding\\": \\"generic holding\\",
+    \\"Value\\": 6450
+  },
+  {
+    \\"First Name\\": \\"Sheila\\",
+    \\"Last Name\\": \\"Aussie\\",
+    \\"Date\\": \\"2020-03-01\\",
+    \\"Holding\\": \\"generic holding\\",
+    \\"Value\\": 4300
+  },
+  {
+    \\"First Name\\": \\"John\\",
+    \\"Last Name\\": \\"Smith\\",
+    \\"Date\\": \\"2020-03-01\\",
+    \\"Holding\\": \\"generic holding\\",
+    \\"Value\\": 120000
+  },
+  {
+    \\"First Name\\": \\"John\\",
+    \\"Last Name\\": \\"Smith\\",
+    \\"Date\\": \\"2020-03-01\\",
+    \\"Holding\\": \\"generic holding\\",
+    \\"Value\\": 30000
+  }
+]"
+`;
