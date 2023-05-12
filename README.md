@@ -6,15 +6,14 @@ A request for a new admin feature has been received
 
 ## Requirements
 
-- An admin is able to generate a csv formatted report showing the values of all user holdings
+1. As an administrator, I would like to generate a CSV formatted report that will show the values of all the user holdings
     - The report should be sent to the `/export` route of the investments service
-    - The investments service expects the csv report to be sent as json
-    - The csv should contain a row for each holding matching the following headers
-    |User|First Name|Last Name|Date|Holding|Value|
+    - The investments service expects the csv report to be sent as a json body
+    - The csv should contain a row for each holding matching the following headers: `|User|First Name|Last Name|Date|Holding|Value|`
     - The holding should be the name of the holding account given by the financial-companies service
     - The holding value can be calculated by `investmentTotal * investmentPercentage`
-- Ensure use of up to date packages and libraries (the service is known to use deprecated packages)
-- Make effective use of git
+2. Ensure use of up to date packages and libraries (the service is known to use deprecated packages)
+3. Make effective use of git
 
 We prefer:
 - Functional code 
