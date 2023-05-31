@@ -8,7 +8,7 @@ A request for a new admin feature has been received
 
 - An admin is able to generate a csv formatted report showing the values of all user holdings
     - The report should be sent to the `/export` route of the investments service
-    - The investments service expects the csv report to be sent as json
+    - The investments service expects the csv report to be sent with content-type application/json 
     - The csv should contain a row for each holding matching the following headers
     |User|First Name|Last Name|Date|Holding|Value|
     - The holding should be the name of the holding account given by the financial-companies service
