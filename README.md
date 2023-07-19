@@ -6,18 +6,21 @@ A request for a new admin feature has been received
 
 ## Requirements
 
-- An admin is able to generate a csv formatted report showing the values of all user holdings
-    - The report should be sent to the `/export` route of the investments service
-    - The investments service expects the csv report to be sent with content-type application/json 
+- As an admin, I want to be able to generate a CSV report showing the values of all user holdings
+    - The **admin** service should contain any new routes that handle the generation of the csv report
+    - The csv report should be sent to the `/export` route of the **investments** service
+    - The investments `/export` route expects the following:
+        - content-type as application/json
+        - JSON object containing the report as csv string, i.e, `{csv: '|User|First Name|...'}`
     - The csv should contain a row for each holding matching the following headers
     |User|First Name|Last Name|Date|Holding|Value|
-    - The holding should be the name of the holding account given by the financial-companies service
-    - The holding value can be calculated by `investmentTotal * investmentPercentage`
+    - The **Holding** property should be the name of the holding account given by the financial-companies service
+    - The **Value** property can be calculated by `investmentTotal * investmentPercentage`
 - Ensure use of up to date packages and libraries (the service is known to use deprecated packages)
 - Make effective use of git
 
 We prefer:
-- Functional code 
+- Functional code
 - Ramda.js (this is not a requirement but feel free to investigate)
 - Unit testing
 
@@ -39,7 +42,7 @@ We're interested in how you break down the work and build your solution in a cle
     1. How might you make this service more secure?
     2. How would you make this solution scale to millions of records?
     3. What else would you have liked to improve given more time?
-  
+
 
 On completion email a link to your repository to your contact at Moneyhub and ensure it is publicly accessible.
 
@@ -62,7 +65,7 @@ The services will try to use ports 8081, 8082 and 8083
 Use Postman or any API tool of you choice to trigger your endpoints (this is how we will test your new route).
 
 ### Existing routes
-We have provided a series of routes 
+We have provided a series of routes
 
 Investments - localhost:8081
 - `/investments` get all investments
