@@ -6,17 +6,18 @@ A request for a new admin feature has been received
 
 ## Requirements
 
-- As an admin, I want to be able to generate a CSV report showing the values of all user holdings
-    - The **admin** service should contain any new routes that handle the generation of the csv report
+- As an admin, I want to be able to generate a CSV report showing the values of all user investment holdings
+    - Any new routes should be added to the **admin** service
     - The csv report should be sent to the `/export` route of the **investments** service
     - The investments `/export` route expects the following:
-        - content-type as application/json
+        - content-type as `application/json`
         - JSON object containing the report as csv string, i.e, `{csv: '|User|First Name|...'}`
     - The csv should contain a row for each holding matching the following headers
     |User|First Name|Last Name|Date|Holding|Value|
-    - The **Holding** property should be the name of the holding account given by the financial-companies service
+    - The **Holding** property should be the name of the holding account given by the **financial-companies** service
     - The **Value** property can be calculated by `investmentTotal * investmentPercentage`
-- Ensure use of up to date packages and libraries (the service is known to use deprecated packages)
+    - The new route in the admin service handling the generation of the csv report should return the csv as text with content type `text/csv`
+- Ensure use of up to date packages and libraries (the service is known to use deprecated packages but there is no expectation to replace them)
 - Make effective use of git
 
 We prefer:
