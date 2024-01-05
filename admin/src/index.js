@@ -1,7 +1,6 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 const config = require("config")
-// const fetch = require('node-fetch')
 
 const app = express()
 
@@ -47,7 +46,38 @@ app.listen(config.port, (err) => {
 })
 
 
-const formatData = (arr1, arr2) => {
-  console.log(arr1, arr2)
-  return arr2
+const formatData = (investments, financials) => {
+  const holdings = [];
+  
+  for (let i = 0; i < investments.length; i++) {
+    const currentUser = investments[i]
+    const nestedHoldings = currentUser.holdings
+
+    const holdingName = financials.find(item => item.id === currentUser.id)
+
+    console.log(holdingName)
+  
+    for (let j = 0; j < nestedHoldings.length; j++) {
+      const currentNestedHoldings = nestedHoldings[j]
+      const combinedObject = {
+        'User': currentUser.userId,
+        'First Name': currentUser.firstName,
+        'Last Name': currentUser.lastName,
+        'Date': currentUser.date,
+        'Holding': currentNestedHoldings.id,
+        'Value': currentNestedHoldings.investmentPercentage * currentUser.investmentTotal
+      };
+      holdings.push(combinedObject)
+    }
+  }
+  
+
+    const result = holdings.map(element => {
+       const holdingName = financials.find(item => item.id === element.Holding)
+        element.Holding = holdingName
+        return holdingName
+    })
+
+  
+    return result;
 }

@@ -76,3 +76,43 @@ const arr2 = [{
     "date": "2020-03-01",
     "holdings": [{"id": "1", "investmentPercentage": 0.8}, {"id": "3", "investmentPercentage": 0.2}]
   }]
+
+
+
+const formatData = (investments, financials) => {
+  const holdings = [];
+  
+  for (let i = 0; i < investments.length; i++) {
+    const currentUser = investments[i]
+    const nestedHoldings = currentUser.holdings
+
+    const holdingName = financials.find(item => item.id === currentUser.id)
+
+    console.log(holdingName)
+  
+    for (let j = 0; j < nestedHoldings.length; j++) {
+      const currentNestedHoldings = nestedHoldings[j]
+      const combinedObject = {
+        'User': currentUser.userId,
+        'First Name': currentUser.firstName,
+        'Last Name': currentUser.lastName,
+        'Date': currentUser.date,
+        'Holding': currentNestedHoldings.id,
+        'Value': currentNestedHoldings.investmentPercentage * currentUser.investmentTotal
+      };
+      holdings.push(combinedObject)
+    }
+  }
+  
+
+    const result = holdings.map(element => {
+       const holdingName = financials.find(item => item.id === element.Holding)
+        element.Holding = holdingName
+        return holdingName
+    })
+
+  
+    return result;
+}
+
+formatData(arr1, arr2)

@@ -1,9 +1,5 @@
 
-    - The csv should contain a row for each holding matching the following headers
-    |User|First Name|Last Name|Date|Holding|Value|
-    - The **Holding** property should be the name of the holding account given by the **financial-companies** service
-    - The **Value** property can be calculated by `investmentTotal * investmentPercentage`
-    - The new route in the admin service handling the generation of the csv report should return the csv as text with content type `text/csv`
+- The new route in the admin service handling the generation of the csv report should return the csv as text with content type `text/csv`
 - Ensure use of up to date packages and libraries (the service is known to use deprecated packages but there is no expectation to replace them)
 - Make effective use of git
 
