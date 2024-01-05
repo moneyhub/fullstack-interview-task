@@ -55,10 +55,6 @@ const formatData = (investments, financials) => {
   for (let i = 0; i < investments.length; i++) {
     const currentUser = investments[i]
     const nestedHoldings = currentUser.holdings
-
-    const holdingName = financials.find(item => item.id === currentUser.id)
-
-    console.log(holdingName)
   
     for (let j = 0; j < nestedHoldings.length; j++) {
       const currentNestedHoldings = nestedHoldings[j]
@@ -73,14 +69,10 @@ const formatData = (investments, financials) => {
       holdings.push(combinedObject)
     }
   }
-  
 
-    const result = holdings.map(element => {
+    holdings.map(element => {
        const holdingName = financials.find(item => item.id === element.Holding)
-        element.Holding = holdingName
-        return holdingName
+        element.Holding = holdingName.name
     })
-
-  
-    return result;
+    return holdings
 }

@@ -86,3 +86,5 @@ The mapping should scale, however it may be better to create events for each of 
 
 What else would you have liked to improve given more time?
 I really wanted to add in the unit tests - which is partly the reason I converted this to async await. I find them easier to test vs callbacks or promises. Also swapping over to fetch which can be mocked so we can test the api calls without needing to make the calls. I have never used Ramda so I stopped coding (and not generate the csv file) so I could look into that testing framework but just ran out of time. I usually use mocha and chai for javascript projects or jest for our typescript services. 
+
+I haven't written the unit tests, however this can be manually tested using the endpoint 'http://localhost:8083/investments' either in postman or using your browser. 
