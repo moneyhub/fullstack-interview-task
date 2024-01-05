@@ -1,23 +1,42 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 const config = require("config")
-const request = require("request")
+// const fetch = require('node-fetch')
 
 const app = express()
 
 app.use(bodyParser.json({limit: "10mb"}))
 
-app.get("/investments/:id", (req, res) => {
-  const {id} = req.params
-  request.get(`${config.investmentsServiceUrl}/investments/${id}`, (e, r, investments) => {
-    if (e) {
-      console.error(e)
-      res.send(500)
-    } else {
-      res.send(investments)
-    }
-  })
+app.get("/investments/:id", async (req, res) => {
+  try {
+    const {id} = req.params
+    const response = await fetch(`${config.investmentsServiceUrl}/investments/${id}`)
+    const data = await response.json()
+    res.send(data)
+  } catch (error) {
+    console.log(error)
+    res.send(500)
+  }
 })
+
+app.get("/investments", async (req, res) => {
+  try {
+
+    const investmentResponse = await fetch(`${config.investmentsServiceUrl}/investments`)
+    const companyResponse = await fetch(`${config.financialCompaniesUrl}/companies`)
+
+    const investmentData = await investmentResponse.json()
+    const companyData = await companyResponse.json()
+
+    const combinedData = formatData(investmentData, companyData)
+
+    res.send(combinedData)
+  } catch (error) {
+    console.log(error)
+    res.send(500)
+  }
+})
+
 
 app.listen(config.port, (err) => {
   if (err) {
@@ -26,3 +45,9 @@ app.listen(config.port, (err) => {
   }
   console.log(`Server running on port ${config.port}`)
 })
+
+
+const formatData = (arr1, arr2) => {
+  console.log(arr1, arr2)
+  return arr2
+}
