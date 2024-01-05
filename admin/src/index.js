@@ -29,6 +29,9 @@ app.get("/investments", async (req, res) => {
 
     const combinedData = formatData(investmentData, companyData)
 
+    // This would need to be converted to a CSV string to be sent over to the 
+    // `${config.financialCompaniesUrl}/investments/export` URL 
+
     res.send(combinedData)
   } catch (error) {
     console.log(error)
@@ -45,7 +48,7 @@ app.listen(config.port, (err) => {
   console.log(`Server running on port ${config.port}`)
 })
 
-
+// Helper functions
 const formatData = (investments, financials) => {
   const holdings = [];
   
