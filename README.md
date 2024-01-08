@@ -69,12 +69,14 @@ Financial Companies - localhost:8082
 
 Admin - localhost:8083
 - `/investments/:id` get an investment record by id
-- `/investments` gets all investment holding data, combined with the financial companies data
+- `/allHoldingsCsvGeneration` gets all investment holding data, combined with the financial companies data
 
 ** Please note the service requires use of node 20, please ensure you are using the correct version of node when you run the admin project. 
 
 
 - How to run any additional scripts or tests you may have added
+To manually test the service, please ensure all 3 microservices are running. Once they are all running, please visit the following URL in your chosen browser 'http://localhost:8083/allHoldingsCsvGeneration'. You should then see the holdings data appear in your browser window in the requested csv format, plus also displayed in the terminal of the investments service. A CSV file has also been saved in the admin service, this will be regenerated and rewritten each time the url is hit. 
+
 - Relating to the task please add answers to the following questions;
 
 How might you make this service more secure?
@@ -83,8 +85,5 @@ Changing the id's would be a good way to start, changing them to uuid's sp they 
 How would you make this solution scale to millions of records?
 The mapping should scale, however it may be better to create events for each of the services (financials and investments, so any time a record is update it emits an events with the most up to data version of the data). You could have a smaller proxy service, who's job is to listen out for these events and any time one has an update, it could fetch the data from the other service via an rpc call and generate a new complete event matching all the data points needed. This new event could be stored in a data warehouse which could be then either used for reporting. That way you also have the latest version in your data warehouse which anyone with the correct access could use if needed and exported. 
 
-
 What else would you have liked to improve given more time?
-I really wanted to add in the unit tests - which is partly the reason I converted this to async await. I find them easier to test vs callbacks or promises. Also swapping over to fetch which can be mocked so we can test the api calls without needing to make the calls. I have never used Ramda so I stopped coding (and not generate the csv file) so I could look into that testing framework but just ran out of time. I usually use mocha and chai for javascript projects or jest for our typescript services. 
-
-I haven't written the unit tests, however this can be manually tested using the endpoint 'http://localhost:8083/investments' either in postman or using your browser. 
+I would like to add additional error handling, so if the csv file was generated but the axios post method failed for whatever reason, there would be a retry. I would also have spent more time reading the Ramda documentation, this is not something I have come across yet (although I do have a learning day this week, so this will be something I look into!). I would also have spent the time to add in unit tests. I have been manually testing my work as I have been doing through, but if I have more time I would add in the unit test and system tests. 

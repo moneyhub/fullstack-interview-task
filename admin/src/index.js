@@ -1,6 +1,9 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 const config = require("config")
+const axios = require("axios")
+const helper = require('./helper.js')
+
 
 const app = express()
 
@@ -18,7 +21,7 @@ app.get("/investments/:id", async (req, res) => {
   }
 })
 
-app.get("/investments", async (req, res) => {
+app.get("/allHoldingsCsvGeneration", async (req, res) => {
   try {
 
     const investmentResponse = await fetch(`${config.investmentsServiceUrl}/investments`)
@@ -27,12 +30,20 @@ app.get("/investments", async (req, res) => {
     const investmentData = await investmentResponse.json()
     const companyData = await companyResponse.json()
 
-    const combinedData = formatData(investmentData, companyData)
+    const combinedData = helper.formatData(investmentData, companyData)
+    const csv = helper.convertToCSV(combinedData)
 
-    // This would need to be converted to a CSV string to be sent over to the 
-    // `${config.financialCompaniesUrl}/investments/export` URL 
+    const jsonData = {
+      csv: csv
+    }
 
-    res.send(combinedData)
+   await axios.post(`${config.investmentsServiceUrl}/investments/export`, jsonData, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+
+    res.send(csv)
   } catch (error) {
     console.log(error)
     res.send(500)
@@ -47,32 +58,3 @@ app.listen(config.port, (err) => {
   }
   console.log(`Server running on port ${config.port}`)
 })
-
-// Helper functions
-const formatData = (investments, financials) => {
-  const holdings = [];
-  
-  for (let i = 0; i < investments.length; i++) {
-    const currentUser = investments[i]
-    const nestedHoldings = currentUser.holdings
-  
-    for (let j = 0; j < nestedHoldings.length; j++) {
-      const currentNestedHoldings = nestedHoldings[j]
-      const combinedObject = {
-        'User': currentUser.userId,
-        'First Name': currentUser.firstName,
-        'Last Name': currentUser.lastName,
-        'Date': currentUser.date,
-        'Holding': currentNestedHoldings.id,
-        'Value': currentNestedHoldings.investmentPercentage * currentUser.investmentTotal
-      };
-      holdings.push(combinedObject)
-    }
-  }
-
-    holdings.map(element => {
-       const holdingName = financials.find(item => item.id === element.Holding)
-        element.Holding = holdingName.name
-    })
-    return holdings
-}
