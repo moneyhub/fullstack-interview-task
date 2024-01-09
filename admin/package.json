@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node src/index.js",
     "develop": "nodemon src/index.js",
-    "test": "mocha"
+    "test": "node --test --test-reporter spec"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,6 @@
   "devDependencies": {
     "@mft/eslint-config-momentumft": "^10.0.0",
     "eslint": "^8.56.0",
-    "mocha": "^10.2.0",
     "nodemon": "^2.0.7"
   },
   "dependencies": {
