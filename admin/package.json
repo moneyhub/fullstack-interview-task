@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "Code for the backend interview task",
   "main": "src/index.js",
+  "engines": {
+    "node": "20"
+  },
   "scripts": {
     "start": "node src/index.js",
     "develop": "nodemon src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --test --test-reporter spec"
   },
   "repository": {
     "type": "git",
@@ -19,14 +22,16 @@
   },
   "homepage": "https://github.com/moneyhub/backend-interview-task#readme",
   "devDependencies": {
-    "@mft/eslint-config-momentumft": "^4.0.0",
-    "eslint": "^6.8.0",
+    "@mft/eslint-config-momentumft": "^10.0.0",
+    "eslint": "^8.56.0",
     "nodemon": "^2.0.7"
   },
   "dependencies": {
+    "axios": "^1.6.4",
     "body-parser": "^1.19.0",
     "config": "^3.3.3",
     "express": "^4.17.1",
+    "json2csv": "^6.0.0-alpha.2",
     "ramda": "^0.27.1",
     "request": "^2.88.2"
   }
