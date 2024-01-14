@@ -82,7 +82,7 @@ npm run test
 4. Environment Variables:
     - Avoid pushing the environment variables to the repository as this can lead to sensitive information (API keys, URLs) being leaked.
 4. Cross-Origin Resource Sharing (CORS):
-    - Configure CORS to restrict which domains can access the /generate-csv-report route. Whitelist only trusted origins.
+    - Configure CORS to restrict which domains can access the /generate-report route. Whitelist only trusted origins.
 5. Remove all the unnecessary logs in the code as they can be a security risk. 
     -   Attackers can use them to gain insigts into the inner workings of the service.
 
@@ -94,10 +94,10 @@ npm run test
 3. Distributed File Storage:
     - Use a distributeed file storage system to store and retrive the generated csv reports efficiently. 
 4. Caching:
-    - cache the results for a specific amount of time. It reduces the need to repeatedly fetch data from  data sources, such as databases or external APIs.
+    - cache the results for a specific amount of time. It reduces the need to repeatedly fetching data from  data sources, such as databases or external APIs.
 
 ### What else would you have liked to improve given more time?
-1. I would add more tests such as API acceptance test to ensure the responses from the route are correct. I would have used the axios-mock-adapter package to mock the requests from axios and test what the response of the route would be:
+1. I would add more tests such as API acceptance test to ensure the responses from the route is correct. I would have used the axios-mock-adapter package to mock the requests from axios and test what the response of the route would be:
     - I would test for the case when the route works as expected and should return the appropriate csv  report. 
     ```
     it('should generate CSV and send to /investments/export', async () => {  
@@ -139,6 +139,8 @@ npm run test
 
 4. Data Validation - I would spend more time validating the data that is sent from the investments and financial services companies.
 
+5. I would have dedicated additional time and effort to conduct thorough research and delve deeper into the functionalities and applications of Ramda.js. This would have involved a comprehensive exploration of its documentation, tutorials, and real-world use cases.
+
 
 ## Additional Notes;
-I encountered challenges during the package installation process due to outdated or deprecated dependencies within the project. After systematic troubleshooting and experimentation, I successfully resolved the issues by installing both Jest and Axios as development dependencies. I apologize for any inconvenience this may have caused.
+I encountered challenges during the package installation process due to outdated or deprecated dependencies within the project. After systematic troubleshooting and experimentation, I successfully resolved the issues by installing both Jest and Axios as development dependencies. I apologise for any inconvenience this may have caused.
