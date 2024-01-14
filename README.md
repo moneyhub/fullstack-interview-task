@@ -34,19 +34,6 @@ You are free to use any packages that would help with this task
 
 We're interested in how you break down the work and build your solution in a clean, reusable and testable manner rather than seeing a perfect example, try to only spend around *1-2 hours* working on it
 
-## Deliverables
-**Please make sure to update the readme with**:
-
-- Your new routes
-- How to run any additional scripts or tests you may have added
-- Relating to the task please add answers to the following questions;
-    1. How might you make this service more secure?
-    2. How would you make this solution scale to millions of records?
-    3. What else would you have liked to improve given more time?
-
-
-On completion email a link to your repository to your contact at Moneyhub and ensure it is publicly accessible.
-
 ## Getting Started
 
 Please clone this service and push it to your own github (or other) public repository
@@ -79,3 +66,79 @@ Financial Companies - localhost:8082
 
 Admin - localhost:8083
 - `/investments/:id` get an investment record by id
+
+## Deliverables 
+### Script to run the tests
+```
+npm run test
+```
+### How might you make this service more secure?
+1. HTTPS (SSL/TLS):
+    - Make use of HTTPS to encrypt data transmitted between the client and server. This prevents eavesdropping and man-in-the-middle attacks.
+2. Dependency Security:
+    - Regularly update and monitor dependencies (e.g., Express, Axios) for security vulnerabilities using tools such as npm audit. This service has many deprecated packages and it is very vital to update or replace them as soon as possible to avoid service crashes and make the service future proof.
+3. Rate Limiting:
+    - Implement rate limiting to prevent abuse or denial-of-service attacks. Limit the number of requests a user or IP address can make in a specific time period. 
+4. Environment Variables:
+    - Avoid pushing the environment variables to the repository as this can lead to sensitive information (API keys, URLs) being leaked.
+4. Cross-Origin Resource Sharing (CORS):
+    - Configure CORS to restrict which domains can access the /generate-csv-report route. Whitelist only trusted origins.
+5. Remove all the unnecessary logs in the code as they can be a security risk. 
+    -   Attackers can use them to gain insigts into the inner workings of the service.
+
+### How would you make this solution scale to millions of records?
+1. Load Balancing:
+    - Efficiently disribute the incoming network traffic across multiple servers. Making sure each server handles an appropriate amount of load leads to better response times and improved overall performance.  
+2. Content Delivery Networks (CDN):
+    - using CDNs for the reports that are static or change infrequently. This will result in a reduction of load on the servers.
+3. Distributed File Storage:
+    - Use a distributeed file storage system to store and retrive the generated csv reports efficiently. 
+4. Caching:
+    - cache the results for a specific amount of time. It reduces the need to repeatedly fetch data from  data sources, such as databases or external APIs.
+
+### What else would you have liked to improve given more time?
+1. I would add more tests such as API acceptance test to ensure the responses from the route are correct. I would have used the axios-mock-adapter package to mock the requests from axios and test what the response of the route would be:
+    - I would test for the case when the route works as expected and should return the appropriate csv  report. 
+    ```
+    it('should generate CSV and send to /investments/export', async () => {  
+        const expectedCSV = `|User|First Name|Last Name|Date|Holding|Value|\n`;
+            
+        // Mock Axios requests with the test data
+        mock.onGet(investmentsTestUrl).reply(200, investmentsMockData);
+        mock.onGet(companiesTestUrl).reply(200, holdingsMockData);
+        mock.onPost(investmentsTestExportUrl).reply(200, { message: 'CSV data received successfully' });
+            
+        const response = await supertest(app)
+            .get('/generate-csv-report')
+            .expect(200);
+
+        expect(response.body).toEqual({ message: 'CSV data sent to investments/export successfully' });
+        expect(mock.history.post.length).toBe(1);
+        expect(mock.history.post[0].data).toEqual(JSON.stringify({ csv: expectedCSV }));
+        
+    });
+    ```
+
+    - I would check if the correct error message and status code is returned if there is an internal server error. Something like this:
+    ```
+        it('should handle errors gracefully', async () => {
+            mock.onGet(investmentsTestUrl).reply(500);
+            const response = await supertest(app)
+                .get('/generate-report')
+                .expect(500);
+
+            expect(response.body).toEqual({ error: 'Internal Server Error' });
+        });
+    ```
+    
+    **The above code snippets are just an example of the tests i would write and how I would structure them.**
+
+2. I would have upgraded or removed most of the outdated and deprecated packages to ensure that everything works smoothly.
+
+3. I would have added documentation for the route I created using OpenAPI specification.
+
+4. Data Validation - I would spend more time validating the data that is sent from the investments and financial services companies.
+
+
+## Additional Notes;
+I encountered challenges during the package installation process due to outdated or deprecated dependencies within the project. After systematic troubleshooting and experimentation, I successfully resolved the issues by installing both Jest and Axios as development dependencies. I apologize for any inconvenience this may have caused.
