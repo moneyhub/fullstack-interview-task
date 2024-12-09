@@ -11,8 +11,8 @@
   "author": "Jack Scott",
   "license": "ISC",
   "dependencies": {
-    "config": "^3.3.3",
-    "express": "^4.17.1"
+    "config": "^3.3.9",
+    "express": "^4.21.2"
   },
   "devDependencies": {
     "@mft/eslint-config-momentumft": "^4.0.0",
